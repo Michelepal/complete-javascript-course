@@ -28,6 +28,11 @@ document.querySelector('.check').addEventListener('click', function () {
     //lezione 4 modifica del csss.
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
+    //lezione 5 implementazione dell'highscore
+    if (highscore > score) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
   } else if (guess > secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = 'Too high!';
@@ -48,6 +53,8 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   }
 });
+
+let hightscore = 0;
 
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
 document.querySelector('.number').textContent = secretNumber;
