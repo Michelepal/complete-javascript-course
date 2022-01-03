@@ -20,10 +20,15 @@ document.querySelector('.guess').value =  23;
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
+  const displayMessage = function(message) {
+    document.querySelector('.message').textContent =  message;
+
+  }
+
   if (!guess) {
-    document.querySelector('.message').textContent = 'No Number!';
+    displayMessage('No Number');
   } else if (guess === secretNumber) {
-    document.querySelector('.message').textContent = 'Correct Number!';
+    displayMessage('Correct Number!');
 
     //lezione 4 modifica del csss.
     document.querySelector('body').style.backgroundColor = '#60b347';
@@ -33,7 +38,21 @@ document.querySelector('.check').addEventListener('click', function () {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
     }
-  } else if (guess > secretNumber) {
+  
+    // lezione 6 - refactoring code 
+  } else if (guess !== secretNumber) {
+
+      if (score > 1) {
+        displayMessage( guess > secretNumber ? 'Too high!' : 'Too Low');
+        score--;
+        document.querySelector('.score').textContent = score;
+      } else {
+        displayMessage('You Lost!');
+        document.querySelector('.score').textContent = 0;
+      }
+    }
+
+/*     else if (guess > secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = 'Too high!';
       score--;
@@ -51,7 +70,7 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.message').textContent = 'You Lost!';
       document.querySelector('.score').textContent = 0;
     }
-  }
+  } */
 });
 
 let hightscore = 0;
