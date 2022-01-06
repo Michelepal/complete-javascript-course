@@ -1,5 +1,8 @@
 'use strict';
 //selecting elements
+//
+const player0El = document.querySelector('.player--0');
+const player1El = document.querySelector('.player--1')
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
 const diceEl = document.querySelector('.dice');
@@ -29,6 +32,8 @@ btnRoll.addEventListener('click', function() {
     currentScore = 0;
     document.getElementById(`current--${activePlayer}`).textContent = currentScore;
     activePlayer = activePlayer === 0 ? 1 : 0;
+    player0El.classList.toggle('player--active');
+    player1El.classList.toggle('player--active');
 
   }
 })
