@@ -19,7 +19,7 @@ score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add('hidden');
 
-const switchPlayer = function() {
+const switchPlayer = function () {
 
   currentScore = 0;
   document.getElementById(`current--${activePlayer}`).textContent = currentScore;
@@ -30,7 +30,7 @@ const switchPlayer = function() {
 
 //rolling dice
 
-btnRoll.addEventListener('click', function() {
+btnRoll.addEventListener('click', function () {
   const dice = Math.trunc(Math.random() * 6) + 1;
   diceEl.classList.remove('hidden');
   diceEl.src = `dice-${dice}.png`;
@@ -38,7 +38,7 @@ btnRoll.addEventListener('click', function() {
     currentScore += dice;
     document.getElementById(`current--${activePlayer}`).textContent = currentScore;
   } else {
-      switchPlayer();
+    switchPlayer();
   }
 })
 
