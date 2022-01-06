@@ -26,8 +26,9 @@ btnRoll.addEventListener('click', function() {
     currentScore += dice;
     document.getElementById(`current--${activePlayer}`).textContent = currentScore;
   } else {
+    currentScore = 0;
     document.getElementById(`current--${activePlayer}`).textContent = currentScore;
     activePlayer = activePlayer === 0 ? 1 : 0;
-    currentScore = 0;
+
   }
 })
